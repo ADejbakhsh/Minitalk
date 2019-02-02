@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/08 18:00:17 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/02 22:02:24 by hben-yah         ###   ########.fr       */
+/*   Created: 2018/04/05 10:49:07 by hben-yah          #+#    #+#             */
+/*   Updated: 2018/06/22 18:22:25 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdio.h>
-# include "libft.h"
+char	*ft_strnew(size_t size)
+{
+	char *str;
 
-
-int		encoding_fill_string(char *dst, char *src);
-char	*encoding(char *s);
-int		decoding_fill_string(char *dst, char *src);
-char	*decoding(char *s);
-int		count_occurence(char *s);
-int		count_only_one_occurence(char *s);
-size_t	encoded_text_length(char *s);
-
-#endif
+	if (!(str = (char *)ft_memalloc(sizeof(char) * (size + 1))))
+		return (NULL);
+	return (str);
+}

@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/08 18:00:17 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/02 22:02:24 by hben-yah         ###   ########.fr       */
+/*   Created: 2018/04/04 17:20:46 by hben-yah          #+#    #+#             */
+/*   Updated: 2018/12/03 15:15:17 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdio.h>
-# include "libft.h"
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char *res;
 
-
-int		encoding_fill_string(char *dst, char *src);
-char	*encoding(char *s);
-int		decoding_fill_string(char *dst, char *src);
-char	*decoding(char *s);
-int		count_occurence(char *s);
-int		count_only_one_occurence(char *s);
-size_t	encoded_text_length(char *s);
-
-#endif
+	if (!s1 || !s2 || !(res = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
+		return (NULL);
+	ft_strcpy(res, s1);
+	ft_strcat(res, s2);
+	return (res);
+}

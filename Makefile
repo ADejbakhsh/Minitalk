@@ -6,7 +6,7 @@
 #    By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/30 14:00:12 by hben-yah          #+#    #+#              #
-#    Updated: 2019/02/02 14:30:06 by hben-yah         ###   ########.fr        #
+#    Updated: 2019/02/02 22:04:21 by hben-yah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,11 @@ COMP			=	clang
 FLAG			=	-Wall -Wextra -Werror -g3
 
 # Sources paths Client
-FILES_C_CLI		=   client.c
+FILES_C_CLI		=   client.c compression.c helper.c
 FILES_O_CLI		=	$(FILES_C_CLI:.c=.o)
 
 # Sources paths Server
-FILES_C_SER		=   server.c
+FILES_C_SER		=   server.c compression.c helper.c
 FILES_O_SER		=	$(FILES_C_SER:.c=.o)
 
 FILES_H			=	minitalk.h
