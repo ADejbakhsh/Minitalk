@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adejbakh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/02 16:17:51 by adejbakh          #+#    #+#             */
-/*   Updated: 2019/02/02 19:51:31 by adejbakh         ###   ########.fr       */
+/*   Created: 2018/08/07 15:07:02 by adejbakh          #+#    #+#             */
+/*   Updated: 2018/11/08 11:21:15 by adejbakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-#include <signal.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <stdlib.h>
-#include "../libft/includes/libft.h"
-#define BUFSIZE 5
-
-typedef struct	s_info
+char	*ft_strncat(char *dest, const char *src, size_t n)
 {
-	char			*str;
-	char			bit;
-	int				pbit;
-	int				pid;
+	int	a;
+	int b;
 
-	struct s_info	*next;
-}					t_info;
-
-void	ft_info_manager(int sig, siginfo_t *clt);
-
-#endif
-
+	a = 0;
+	b = 0;
+	while (dest[b] != '\0')
+		b++;
+	while (src[a] != '\0' && n > 0)
+	{
+		dest[b] = src[a];
+		a++;
+		b++;
+		n--;
+	}
+	dest[b] = '\0';
+	return (dest);
+}

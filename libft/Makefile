@@ -6,7 +6,7 @@
 #    By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/14 13:21:32 by hben-yah          #+#    #+#              #
-#    Updated: 2019/02/02 13:50:31 by hben-yah         ###   ########.fr        #
+#    Updated: 2019/02/02 19:10:01 by adejbakh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,13 @@ COMP			=	clang
 FLAG			=	-Wall -Wextra -Werror -g3
 
 # Sources paths
-FILES_C			=	ft_strlen.c
+FILES_C			=	    ft_bzero.c\
+    ft_realloc.c\
+    ft_strlcat.c\
+    ft_strlen.c\
+    ft_strnew.c\
+    ft_strncat.c\
+
 FILES_O			=	$(FILES_C:.c=.o)
 FILES_H			=	libft.h
 

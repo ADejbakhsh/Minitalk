@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adejbakh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/02 16:17:51 by adejbakh          #+#    #+#             */
-/*   Updated: 2019/02/02 19:51:31 by adejbakh         ###   ########.fr       */
+/*   Created: 2018/11/18 16:11:34 by adejbakh          #+#    #+#             */
+/*   Updated: 2018/11/23 18:32:14 by adejbakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-#include <signal.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <stdlib.h>
-#include "../libft/includes/libft.h"
-#define BUFSIZE 5
-
-typedef struct	s_info
+char	*ft_realloc(char *s1, int lenght)
 {
-	char			*str;
-	char			bit;
-	int				pbit;
-	int				pid;
+	char	*cpy;
+	size_t	i;
 
-	struct s_info	*next;
-}					t_info;
-
-void	ft_info_manager(int sig, siginfo_t *clt);
-
-#endif
-
+	i = 0;
+	if (!(cpy = ft_strnew(lenght + ft_strlen(s1))))
+		return (NULL);
+	ft_bzero(cpy, ft_strlen(s1) + lenght);
+	ft_strncat(cpy, s1, ft_strlen(s1) + lenght);
+	free(s1);
+	s1 = NULL;
+	return (cpy);
+}
