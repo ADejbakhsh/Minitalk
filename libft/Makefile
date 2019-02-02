@@ -6,7 +6,7 @@
 #    By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/14 13:21:32 by hben-yah          #+#    #+#              #
-#    Updated: 2019/02/02 12:38:41 by hben-yah         ###   ########.fr        #
+#    Updated: 2019/02/02 13:50:31 by hben-yah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ COMP			=	clang
 FLAG			=	-Wall -Wextra -Werror -g3
 
 # Sources paths
-FILES_C			=	
+FILES_C			=	ft_strlen.c
 FILES_O			=	$(FILES_C:.c=.o)
 FILES_H			=	libft.h
 
@@ -41,7 +41,7 @@ $(NAME)			:	$(OBJS)
 $(OBJS_D)%.o	:	$(SRCS_D)%.c $(INCL)
 					@echo -e "\033[2K\c"
 					@echo "\rCréation de l'objet $@\c"
-					@mkdir -p $(addprefix $(OBJS_D), $(SRCS_SD))
+					@mkdir -p $(OBJS_D)
 					@$(COMP) $(FLAG) -I $(INCL_D) -o $@ -c $<
 
 clean			:
