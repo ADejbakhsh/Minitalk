@@ -6,7 +6,7 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 21:43:21 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/03 16:23:20 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/03 16:31:31 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void
 	encoding_fill_string(char *dst, char *src, int mode, int occ)
 {
-	char 	c;
+	char	c;
 	size_t	i;
 
 	i = 0;
@@ -84,13 +84,13 @@ static int
 }
 
 char
-	*decoding(char *s) 
+	*decoding(char *s)
 {
 	char	*new;
 
 	if (!s)
 		return (NULL);
-	new = ft_strnew(encoded_text_length(s));
+	try_m(new = ft_strnew(encoded_text_length(s)));
 	if (new && decoding_fill_string(new, s))
 	{
 		ft_strdel(&new);

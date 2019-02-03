@@ -6,7 +6,7 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 13:50:35 by adejbakh          #+#    #+#             */
-/*   Updated: 2019/02/03 16:04:24 by adejbakh         ###   ########.fr       */
+/*   Updated: 2019/02/03 16:29:46 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_cdata	*get_cdata(void)
 	static t_cdata *cdata;
 
 	if (!cdata)
-		cdata = (t_cdata *)ft_memalloc(sizeof(t_cdata));
+		try_m(cdata = (t_cdata *)ft_memalloc(sizeof(t_cdata)));
 	return (cdata);
 }
 

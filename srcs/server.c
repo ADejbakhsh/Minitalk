@@ -6,7 +6,7 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 12:43:27 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/03 16:22:54 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/03 16:30:31 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ static void
 	con = get_connection(sdata, pid);
 	if (!con)
 	{
-		if (!(con = (t_connect *)ft_memalloc(sizeof(t_connect)))
-			|| !(con->text = ft_strnew(MTBUFFSIZE)))
-			exit(1);
+		try_m(con = (t_connect *)ft_memalloc(sizeof(t_connect)));
+		try_m(con->text = ft_strnew(MTBUFFSIZE));
 		con->maxlen = MTBUFFSIZE;
 		con->next = sdata->con;
 		con->pid = pid;

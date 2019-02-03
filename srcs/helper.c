@@ -6,24 +6,14 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 21:46:07 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/03 16:22:16 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/03 16:29:28 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	*try_m(void *ptr)
-{
-	if (!ptr)
-	{
-		ft_putendl("memory allocation error\n");
-		exit(1);
-	}
-	return (ptr);
-}
-
-
-int		count_occurence(char *s)
+int
+	count_occurence(char *s)
 {
 	char	c;
 	int		occ;
@@ -36,7 +26,8 @@ int		count_occurence(char *s)
 	return (occ);
 }
 
-int		count_only_one_occurence(char *s)
+int
+	count_only_one_occurence(char *s)
 {
 	int		nb;
 	int		occ;
@@ -54,7 +45,8 @@ int		count_only_one_occurence(char *s)
 	return (nb);
 }
 
-size_t	encoded_text_length(char *s)
+size_t
+	encoded_text_length(char *s)
 {
 	size_t	len;
 	size_t	sublen;
@@ -74,16 +66,18 @@ size_t	encoded_text_length(char *s)
 	return (len);
 }
 
-t_sdata *get_sdata(void)
+t_sdata
+	*get_sdata(void)
 {
 	static t_sdata *sdata;
 
 	if (!sdata)
-		sdata = (t_sdata *)ft_memalloc(sizeof(t_sdata));
+		try_m(sdata = (t_sdata *)ft_memalloc(sizeof(t_sdata)));
 	return (sdata);
 }
 
-t_connect *get_connection(t_sdata *sdata, int pid)
+t_connect
+	*get_connection(t_sdata *sdata, int pid)
 {
 	t_connect *con;
 
