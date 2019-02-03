@@ -6,7 +6,7 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 21:43:21 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/03 16:20:34 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/03 16:23:20 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void
 		}
 		else if (occ > 3)
 		{
-			*(dst++) = 2; 
+			*(dst++) = 2;
 			*(dst++) = occ;
 			src += occ - 1;
 			mode = 1;
@@ -43,7 +43,7 @@ static void
 }
 
 char
-	*encoding(char *s) 
+	*encoding(char *s)
 {
 	char	*new;
 
@@ -69,7 +69,7 @@ static int
 		if (mode == 1)
 		{
 			while (occ--)
-				*(dst++) = *(src++);	
+				*(dst++) = *(src++);
 		}
 		else if (mode == 2)
 		{

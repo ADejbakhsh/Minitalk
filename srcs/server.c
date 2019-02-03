@@ -6,7 +6,7 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 12:43:27 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/03 16:07:02 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/03 16:22:54 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int
 	ft_putendl("\e[0m\n");
 	clt_action.sa_sigaction = ser_sig_handler;
 	clt_action.sa_flags = SA_SIGINFO;
-	sigaction (SIGUSR1, &clt_action, NULL);
-	sigaction (SIGUSR2, &clt_action, NULL);
+	sigaction(SIGUSR1, &clt_action, NULL);
+	sigaction(SIGUSR2, &clt_action, NULL);
 	while (1)
 		;
 	return (0);
