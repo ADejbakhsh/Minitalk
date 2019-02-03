@@ -6,7 +6,7 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 18:00:17 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/03 16:48:42 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/03 16:51:08 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 # define MINITALK_H
 
 # include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
 # include <signal.h>
-# include <sys/types.h>
 
 # include "libft.h"
 
