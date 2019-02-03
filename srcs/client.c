@@ -6,15 +6,13 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 13:50:35 by adejbakh          #+#    #+#             */
-/*   Updated: 2019/02/03 15:48:09 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/03 16:04:24 by adejbakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-
-
-t_cdata *get_cdata(void)
+t_cdata	*get_cdata(void)
 {
 	static t_cdata *cdata;
 
@@ -44,7 +42,7 @@ void	cli_sig_handler(int sig, siginfo_t *clt, void *t)
 {
 	t_cdata *cdata;
 
-	cdata = get_cdata();	
+	cdata = get_cdata();
 	if (t)
 		;
 	if (cdata->spid != clt->si_pid)
@@ -68,10 +66,10 @@ void	send_text(t_cdata *cdata)
 	send_char(cdata, 0);
 }
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-	struct sigaction clt_action;
-	t_cdata *cdata;
+	struct sigaction	clt_action;
+	t_cdata				*cdata;
 
 	if (argc != 3 || !*argv[2])
 		return (1);
@@ -80,8 +78,8 @@ int main(int argc, char **argv)
 	cdata->text = encoding(argv[2]);
 	clt_action.sa_sigaction = cli_sig_handler;
 	clt_action.sa_flags = SA_SIGINFO;
-	sigaction (SIGUSR1, &clt_action, NULL);
-	sigaction (SIGUSR2, &clt_action, NULL);
+	sigaction(SIGUSR1, &clt_action, NULL);
+	sigaction(SIGUSR2, &clt_action, NULL);
 	while (!cdata->flag.val)
 	{
 		kill(cdata->spid, SIGUSR2);

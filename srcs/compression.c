@@ -6,7 +6,7 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 21:43:21 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/03 15:39:31 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/03 16:06:29 by adejbakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		encoding_fill_string(char *dst, char *src)
 {
 	int		mode;
 	int		occ;
-	char 	c;
+	char	c;
 	size_t	i;
 
 	if (!(mode = 1) || !dst || !src)
@@ -32,7 +32,7 @@ int		encoding_fill_string(char *dst, char *src)
 		}
 		else if (occ > 3)
 		{
-			*(dst++) = 2; 
+			*(dst++) = 2;
 			*(dst++) = occ;
 			src += occ - 1;
 			mode = 1;
@@ -46,7 +46,7 @@ int		encoding_fill_string(char *dst, char *src)
 	return (0);
 }
 
-char *encoding(char *s) 
+char	*encoding(char *s)
 {
 	char	*new;
 
@@ -72,7 +72,7 @@ int		decoding_fill_string(char *dst, char *src)
 		if (mode == 1)
 		{
 			while (occ--)
-				*(dst++) = *(src++);	
+				*(dst++) = *(src++);
 		}
 		else if (mode == 2)
 		{
@@ -86,7 +86,7 @@ int		decoding_fill_string(char *dst, char *src)
 	return (0);
 }
 
-char *decoding(char *s) 
+char	*decoding(char *s)
 {
 	char	*new;
 
