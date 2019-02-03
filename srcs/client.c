@@ -6,7 +6,7 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 13:50:35 by adejbakh          #+#    #+#             */
-/*   Updated: 2019/02/03 16:29:46 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/03 16:47:45 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ void	send_char(t_cdata *cdata, char c)
 	i = 8;
 	while (i--)
 	{
-		while (!cdata->flag.val)
+		while (!cdata->flag)
 		{
 			kill(cdata->spid, c & 128 ? SIGUSR2 : SIGUSR1);
 			usleep(5000);
 		}
-		cdata->flag.val = 0;
+		cdata->flag = 0;
 		c <<= 1;
 	}
 }
@@ -49,13 +49,11 @@ void	cli_sig_handler(int sig, siginfo_t *clt, void *t)
 		return ;
 	if (sig == SIGUSR1)
 	{
-		cdata->flag.val <<= 1;
-		cdata->flag.nbit += 1;
+		cdata->flag <<= 1;
 	}
 	else if (sig == SIGUSR2)
 	{
-		cdata->flag.val = (cdata->flag.val << 1) + 1;
-		cdata->flag.nbit += 1;
+		cdata->flag = (cdata->flag << 1) + 1;
 	}
 }
 
@@ -80,13 +78,14 @@ int		main(int argc, char **argv)
 	clt_action.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &clt_action, NULL);
 	sigaction(SIGUSR2, &clt_action, NULL);
-	while (!cdata->flag.val)
+	while (!cdata->flag)
 	{
 		kill(cdata->spid, SIGUSR2);
 		sleep(1);
 	}
-	cdata->flag.val = 0;
+	cdata->flag = 0;
 	send_text(cdata);
 	ft_putendl("Envoyé");
+	free_cdata(&cdata);
 	return (0);
 }

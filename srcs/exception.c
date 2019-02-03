@@ -6,7 +6,7 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 16:25:57 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/03 16:40:54 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/03 16:48:26 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,12 @@ void
 		con = con->next;
 	if (con)
 		free_con(&con);
+}
+
+void
+	free_cdata(t_cdata **cdata)
+{
+	if ((*cdata)->text)
+		ft_strdel(&(*cdata)->text);
+	free(*cdata);
 }

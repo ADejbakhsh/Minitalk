@@ -6,7 +6,7 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 18:00:17 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/03 16:40:27 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/03 16:48:42 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct			s_char
 
 typedef struct			s_cdata
 {
-	t_char				flag;
+	char				flag;
 	int					spid;
 	char				*text;
 	size_t				sent;
@@ -72,5 +72,6 @@ t_connect				*get_connection(t_sdata *sdata, int pid);
 void					handle_char(t_connect *con);
 void					*try_m(void *ptr);
 void					delete_con(int pid);
+void					free_cdata(t_cdata **cdata);
 
 #endif
