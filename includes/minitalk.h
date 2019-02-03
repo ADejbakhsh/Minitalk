@@ -6,7 +6,7 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 18:00:17 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/03 00:19:10 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/03 13:28:47 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,40 @@ typedef struct	s_info
 	struct s_info	*next;
 }					t_info;
 
+typedef struct s_char
+{
+	int		nbit;
+	char	val;
+}				t_char;
+
+typedef struct s_cdata
+{
+	t_char		flag;
+	int			spid;
+
+	char		*text;
+	//size_t		len;
+	size_t		sent;
+}				t_cdata;
+
+typedef struct s_connect
+{
+	int					pid;
+	char				*text;
+	size_t				len;
+	size_t				maxlen;
+
+	char				word[8];
+	size_t				wlen;
+	t_char				curchar;
+	struct s_connect	*next;
+}				t_connect;
+
+typedef struct s_sdata
+{
+	t_connect	*con;
+}				t_sdata;
+
 int		encoding_fill_string(char *dst, char *src);
 char	*encoding(char *s);
 int		decoding_fill_string(char *dst, char *src);
@@ -40,7 +74,7 @@ char	*decoding(char *s);
 int		count_occurence(char *s);
 int		count_only_one_occurence(char *s);
 size_t	encoded_text_length(char *s);
-void	send_char(int pid, char c);
+void	send_char(t_cdata *cdata, char c);
 
 void	ft_info_manager(int sig, siginfo_t *clt);
 

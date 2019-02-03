@@ -6,7 +6,7 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 21:43:21 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/02 22:30:17 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/03 15:39:31 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int		encoding_fill_string(char *dst, char *src)
 	int		mode;
 	int		occ;
 	char 	c;
+	size_t	i;
 
 	if (!(mode = 1) || !dst || !src)
 		return (1);
@@ -25,7 +26,8 @@ int		encoding_fill_string(char *dst, char *src)
 		if ((occ = count_occurence(src)) < 4 && mode)
 		{
 			*(dst++) = 1;
-			*(dst++) = count_only_one_occurence(src);
+			i = count_only_one_occurence(src);
+			*(dst++) = i;
 			mode = 0;
 		}
 		else if (occ > 3)
@@ -35,8 +37,11 @@ int		encoding_fill_string(char *dst, char *src)
 			src += occ - 1;
 			mode = 1;
 		}
+		else if (i <= 1)
+			mode = 1;
 		*(dst++) = c;
 		++src;
+		--i;
 	}
 	return (0);
 }
@@ -56,7 +61,7 @@ char *encoding(char *s)
 int		decoding_fill_string(char *dst, char *src)
 {
 	char	mode;
-	int		occ;
+	char	occ;
 
 	if (!dst || !src)
 		return (1);
@@ -89,7 +94,7 @@ char *decoding(char *s)
 		return (NULL);
 	new = ft_strnew(encoded_text_length(s));
 	decoding_fill_string(new, s);
-	//if (new && decoding_fill_string(new, s))
-	//	ft_strdel(&new);
+	if (new && decoding_fill_string(new, s))
+		ft_strdel(&new);
 	return (new);
 }
