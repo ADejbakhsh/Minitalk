@@ -6,7 +6,7 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 13:50:35 by adejbakh          #+#    #+#             */
-/*   Updated: 2019/02/03 16:47:45 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/03 17:01:17 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,16 @@ int		main(int argc, char **argv)
 	clt_action.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &clt_action, NULL);
 	sigaction(SIGUSR2, &clt_action, NULL);
+	ft_putendl("Synchronisation...");
 	while (!cdata->flag)
 	{
 		kill(cdata->spid, SIGUSR2);
-		sleep(1);
+		sleep(2);
 	}
+	ft_putendl("Ok !\nTransfert...");
 	cdata->flag = 0;
 	send_text(cdata);
-	ft_putendl("Envoyé");
+	ft_putendl("Envoyé !");
 	free_cdata(&cdata);
 	return (0);
 }
