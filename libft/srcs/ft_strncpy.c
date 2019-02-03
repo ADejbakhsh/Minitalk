@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hben-yah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/05 10:49:07 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/02 22:34:09 by hben-yah         ###   ########.fr       */
+/*   Created: 2018/04/03 17:53:19 by hben-yah          #+#    #+#             */
+/*   Updated: 2018/04/03 17:53:21 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	char *str;
+	char *d;
 
-	if (!(str = (char *)ft_memalloc(sizeof(char) * (size + 1))))
-		return (NULL);
-	return (str);
+	d = dst;
+	while (*src && len--)
+	{
+		*(d++) = *(src++);
+	}
+	if ((int)len > 0)
+		while (len--)
+			*(d++) = 0;
+	return (dst);
 }

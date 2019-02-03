@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hben-yah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/05 10:49:07 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/02 22:34:09 by hben-yah         ###   ########.fr       */
+/*   Created: 2018/04/04 17:22:23 by hben-yah          #+#    #+#             */
+/*   Updated: 2018/04/04 17:22:25 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+void	ft_putnbr(int nb)
 {
-	char *str;
+	unsigned int n;
 
-	if (!(str = (char *)ft_memalloc(sizeof(char) * (size + 1))))
-		return (NULL);
-	return (str);
+	n = nb;
+	if (nb < 0)
+	{
+		n *= -1;
+		ft_putchar('-');
+	}
+	if (n / 10)
+		ft_putnbr(n / 10);
+	ft_putchar('0' + (n % 10));
 }

@@ -6,7 +6,7 @@
 #    By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/14 13:21:32 by hben-yah          #+#    #+#              #
-#    Updated: 2019/02/02 18:38:54 by hben-yah         ###   ########.fr        #
+#    Updated: 2019/02/03 00:17:04 by hben-yah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,17 @@ FILES_C			=	ft_strlen.c \
 					ft_strcat.c \
 					ft_memdel.c \
 					ft_memalloc.c \
-					ft_bzero.c
+					ft_bzero.c \
+				    ft_realloc.c\
+				    ft_strlcat.c\
+				    ft_strlen.c\
+				    ft_strnew.c\
+				    ft_strncat.c \
+				    ft_atoi.c \
+				    ft_putnbr.c \
+				    ft_putchar.c \
+				    ft_putendl.c \
+				    ft_strncpy.c
 
 FILES_O			=	$(FILES_C:.c=.o)
 FILES_H			=	libft.h

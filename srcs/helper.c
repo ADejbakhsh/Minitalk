@@ -6,22 +6,11 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 21:46:07 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/02 21:58:07 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/02 22:40:41 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-
-void	merge(char **s1, char *s2)
-{
-	char *new;
-
-	new = ft_strjoin(*s1, s2);
-	if (!new)
-		exit(1);
-	ft_strdel(s1);
-	*s1 = new;
-}
 
 int count_occurence(char *s)
 {

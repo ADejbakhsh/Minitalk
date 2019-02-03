@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hben-yah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/05 10:49:07 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/02 22:34:09 by hben-yah         ###   ########.fr       */
+/*   Created: 2018/04/04 17:22:12 by hben-yah          #+#    #+#             */
+/*   Updated: 2018/04/04 17:22:13 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+void	ft_putendl(char const *s)
 {
-	char *str;
-
-	if (!(str = (char *)ft_memalloc(sizeof(char) * (size + 1))))
-		return (NULL);
-	return (str);
+	if (s)
+	{
+		ft_putstr(s);
+		ft_putchar('\n');
+	}
 }
