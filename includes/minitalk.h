@@ -6,7 +6,7 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 18:00:17 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/03 13:28:47 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/03 16:21:05 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,15 @@ typedef struct s_sdata
 	t_connect	*con;
 }				t_sdata;
 
-int		encoding_fill_string(char *dst, char *src);
-char	*encoding(char *s);
-int		decoding_fill_string(char *dst, char *src);
-char	*decoding(char *s);
-int		count_occurence(char *s);
-int		count_only_one_occurence(char *s);
-size_t	encoded_text_length(char *s);
-void	send_char(t_cdata *cdata, char c);
-
-void	ft_info_manager(int sig, siginfo_t *clt);
+char		*encoding(char *s);
+char		*decoding(char *s);
+int			count_occurence(char *s);
+int			count_only_one_occurence(char *s);
+size_t		encoded_text_length(char *s);
+void		send_char(t_cdata *cdata, char c);
+t_sdata		*get_sdata(void);
+t_connect	*get_connection(t_sdata *sdata, int pid);
+void		handle_char(t_connect *con);
+void		*try_m(void *ptr);
 
 #endif
-

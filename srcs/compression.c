@@ -6,21 +6,19 @@
 /*   By: hben-yah <hben-yah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 21:43:21 by hben-yah          #+#    #+#             */
-/*   Updated: 2019/02/03 15:39:31 by hben-yah         ###   ########.fr       */
+/*   Updated: 2019/02/03 16:20:34 by hben-yah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int		encoding_fill_string(char *dst, char *src)
+static void
+	encoding_fill_string(char *dst, char *src, int mode, int occ)
 {
-	int		mode;
-	int		occ;
 	char 	c;
 	size_t	i;
 
-	if (!(mode = 1) || !dst || !src)
-		return (1);
+	i = 0;
 	while ((c = *src))
 	{
 		if ((occ = count_occurence(src)) < 4 && mode)
@@ -40,25 +38,24 @@ int		encoding_fill_string(char *dst, char *src)
 		else if (i <= 1)
 			mode = 1;
 		*(dst++) = c;
-		++src;
-		--i;
+		++src && --i;
 	}
-	return (0);
 }
 
-char *encoding(char *s) 
+char
+	*encoding(char *s) 
 {
 	char	*new;
 
 	if (!s)
 		return (NULL);
-	new = ft_strnew(ft_strlen(s) * 3);
-	if (new && encoding_fill_string(new, s))
-		ft_strdel(&new);
+	try_m(new = ft_strnew(ft_strlen(s) * 3));
+	encoding_fill_string(new, s, 1, 0);
 	return (new);
 }
 
-int		decoding_fill_string(char *dst, char *src)
+static int
+	decoding_fill_string(char *dst, char *src)
 {
 	char	mode;
 	char	occ;
@@ -86,15 +83,18 @@ int		decoding_fill_string(char *dst, char *src)
 	return (0);
 }
 
-char *decoding(char *s) 
+char
+	*decoding(char *s) 
 {
 	char	*new;
 
 	if (!s)
 		return (NULL);
 	new = ft_strnew(encoded_text_length(s));
-	decoding_fill_string(new, s);
 	if (new && decoding_fill_string(new, s))
+	{
 		ft_strdel(&new);
+		return (NULL);
+	}
 	return (new);
 }
